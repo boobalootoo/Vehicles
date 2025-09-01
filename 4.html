@@ -8,17 +8,12 @@
             background-color: #f0f0f0;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Aligns items to the top */
-            flex-direction: column; /* Stacks the pages vertically */
+            align-items: center; /* Aligns items to the center */
+            flex-direction: row; /* Arranges the pages horizontally */
+            flex-wrap: wrap; /* Allows wrapping on smaller screens */
             min-height: 100vh;
             margin: 0;
             padding: 20px;
-        }
-
-        h2 {
-            text-align: center;
-            color: #555;
-            margin: 20px auto;
         }
 
         .page-container {
@@ -28,7 +23,7 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             padding: 10mm;
             box-sizing: border-box;
-            margin-bottom: 30px;
+            margin: 10px; /* Spacing between pages */
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: repeat(3, 1fr);
@@ -51,9 +46,6 @@
         }
 
         /* Front of the page */
-        .front-page {
-            /* No special transformation needed for the front */
-        }
         .front-page .card:nth-child(1) img { content: url('forklift.png'); }
         .front-page .card:nth-child(2) img { content: url('digger.png'); }
         .front-page .card:nth-child(3) img { content: url('tractor.png'); }
@@ -61,13 +53,11 @@
         .front-page .card:nth-child(5) img { content: url('fire engine.png'); }
         .front-page .card:nth-child(6) img { content: url('bus.png'); }
 
-        /* Back of the page */
+        /* Back of the page - flipped */
         .back-page {
-            /* Flips the entire layout horizontally for the back side preview */
             transform: scaleX(-1);
         }
         .back-page .card img {
-            /* Flips the image back so it looks correct */
             transform: scaleX(-1);
         }
         .back-page .card:nth-child(1) img { content: url('digger.png'); }
@@ -81,7 +71,6 @@
 </head>
 <body>
 
-    <h2>Front of the Page</h2>
     <div class="page-container front-page">
         <div class="card"><img></div>
         <div class="card"><img></div>
@@ -91,7 +80,6 @@
         <div class="card"><img></div>
     </div>
 
-    <h2>Back of the Page</h2>
     <div class="page-container back-page">
         <div class="card"><img></div>
         <div class="card"><img></div>
