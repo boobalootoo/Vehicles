@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Printable Vehicle Cards</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        #instructions {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        #instructions h2 {
+            color: #555;
+            margin-top: 0;
+        }
+
+        #instructions p {
+            line-height: 1.6;
+        }
+
+        #instructions ol {
+            padding-left: 20px;
+        }
+
+        #instructions li {
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .page-break {
+            page-break-after: always;
+        }
+
+        @media print {
+            body {
+                width: 210mm;
+                height: 297mm;
+                margin: 0;
+                padding: 0;
+            }
+
+            @page {
+                size: A4;
+                margin: 0;
+            }
+
+            #instructions {
+                display: none;
+            }
+
+            .page-container {
+                width: 100%;
+                height: 100%;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+            }
+
+            .card {
+                width: 100%;
+                height: 100%;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 10mm;
+                border: 1px solid #ccc;
+                overflow: hidden;
+            }
+
+            .card img {
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+            }
+
+            .card p {
+                font-size: 24px;
+                font-weight: bold;
+                text-align: center;
+                word-wrap: break-word;
+            }
+        }
+
+        /* Front Page - Images (using your file names) */
+        .front-page .card:nth-child(1) img { content: url('forklift.png'); }
+        .front-page .card:nth-child(2) img { content: url('digger.png'); }
+        .front-page .card:nth-child(3) img { content: url('tractor.png'); }
+        .front-page .card:nth-child(4) img { content: url('car.png'); }
+        .front-page .card:nth-child(5) img { content: url('fire engine.png'); }
+        .front-page .card:nth-child(6) img { content: url('bus.png'); }
+
+        /* Back Page - Text (will be upside down for duplex printing) */
+        .back-page {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="instructions">
+        <h2>Instructions for Printing Double-Sided Cards</h2>
+        <p>To print these cards correctly, follow these steps in your browser's print dialog:</p>
+        <ol>
+            <li>First, ensure you have downloaded all the image files from your GitHub repository and that they are in the same folder as this HTML file.</li>
+            <li>Open the print dialog by pressing <b>Ctrl+P</b> (or <b>Cmd+P</b> on Mac).</li>
+            <li>In the print settings, make sure the paper size is set to <b>A4</b>.</li>
+            <li>Set the **Margins** to <b>None</b> or <b>Zero</b>.</li>
+            <li>Look for an option for "Duplex" or "Print on both sides" and select it.</li>
+            <li>Crucially, choose the option to <b>"Flip on short edge"</b>. This ensures the back side of the card is correctly aligned and not upside down.</li>
+            <li>Click <b>Print</b>.</li>
+        </ol>
+        <p>You can ignore the text on this page once you open the print dialog, as it will automatically hide for printing.</p>
+    </div>
+
+    <!-- Front Page of Cards -->
+    <div class="page-container front-page">
+        <div class="card"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Forklift"></div>
+        <div class="card"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Digger"></div>
+        <div class="card"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Tractor"></div>
+        <div class="card"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Car"></div>
+        <div class="card"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Fire Engine"></div>
+        <div class="card"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Bus"></div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- Back Page of Cards (will be upside down for duplex printing) -->
+    <div class="page-container back-page">
+        <div class="card"><p>Forklift: Purple, 1 person</p></div>
+        <div class="card"><p>Digger: Yellow, 2 people</p></div>
+        <div class="card"><p>Tractor: Green, 3 people</p></div>
+        <div class="card"><p>Car: Blue, 5 people</p></div>
+        <div class="card"><p>Fire Engine: Red, 4 people</p></div>
+        <div class="card"><p>Bus: Orange, 6 people</p></div>
+    </div>
+
+</body>
+  </html>
