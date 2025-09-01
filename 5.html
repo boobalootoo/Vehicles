@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transparent Print Preview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .page-container {
+            width: 210mm;
+            height: 297mm;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            padding: 10mm;
+            box-sizing: border-box;
+            margin: 10px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 10mm;
+        }
+
+        .card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .card img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        /* Front of the page */
+        .front-page .card:nth-child(1) img { content: url('forklift.png'); }
+        .front-page .card:nth-child(2) img { content: url('digger.png'); }
+        .front-page .card:nth-child(3) img { content: url('tractor.png'); }
+        .front-page .card:nth-child(4) img { content: url('car.png'); }
+        .front-page .card:nth-child(5) img { content: url('fire engine.png'); }
+        .front-page .card:nth-child(6) img { content: url('bus.png'); }
+
+        /* Back of the page - flipped */
+        .back-page .card img {
+            transform: scaleX(-1); /* Correctly flips each individual image */
+        }
+        .back-page .card:nth-child(1) img { content: url('forklift.png'); }
+        .back-page .card:nth-child(2) img { content: url('digger.png'); }
+        .back-page .card:nth-child(3) img { content: url('tractor.png'); }
+        .back-page .card:nth-child(4) img { content: url('car.png'); }
+        .back-page .card:nth-child(5) img { content: url('fire engine.png'); }
+        .back-page .card:nth-child(6) img { content: url('bus.png'); }
+
+    </style>
+</head>
+<body>
+
+    <div class="page-container front-page">
+        <div class="card"><img></div>
+        <div class="card"><img></div>
+        <div class="card"><img></div>
+        <div class="card"><img></div>
+        <div class="card"><img></div>
+        <div class="card"><img></div>
+    </div>
+
+    <div class="page-container back-page">
+        <div class="card"><img></div>
+        <div class="card"><img></div>
+        <div class="card"><img></div>
+        <div class="card"><img></div>
+        <div class="card"><img></div>
+        <div class="card"><img></div>
+    </div>
+
+</body>
+</html>
